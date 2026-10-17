@@ -1,0 +1,15 @@
+1. Hai sai lầm của Nam khi dùng file .docx
+Sai lầm 1: Nhầm lẫn file nhị phân với văn bản thô trong Git.
+File .docx là dạng tệp nén nhị phân (ZIP chứa XML). Git không thể đọc từng dòng để quản lý phiên bản, dẫn đến việc báo xung đột (conflict) toàn bộ file dù chỉ sửa một dấu phẩy.
+
+Sai lầm 2: Bất tiện cho làm việc nhóm và xem trực tiếp trên GitHub.
+File .docx không thể hiển thị trực tiếp (render) trên trình duyệt GitHub và làm mất khả năng so sánh thay đổi chi tiết từng dòng (Line-by-line Diff) giữa các thành viên.
+
+2. Tại sao Markdown (.md) an toàn và nhẹ hơn?
+Khả năng chống hỏng file (Xử lý bẫy mất dữ liệu):
+
+Word (.docx): Mất 1 byte dữ liệu do lỗi mạng sẽ làm vỡ cấu trúc ZIP/XML, khiến toàn bộ file bị hỏng hoàn toàn (Corrupted).
+
+Markdown (.md): Là Plain Text, nếu mất 1 byte chỉ hỏng đúng ký tự đó, toàn bộ phần còn lại vẫn đọc được bình thường trên mọi trình soạn thảo.
+
+Hỗ trợ Git Diff tối ưu: Git theo dõi chi tiết từng dòng chữ. Nam sửa dòng nào, Git chỉ cập nhật dòng đó, giúp tránh hoàn toàn hiện tượng xung đột cả file.
